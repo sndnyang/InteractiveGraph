@@ -90,7 +90,7 @@ export abstract class MainFrame {
                     $(htmlInfoBox).empty(); //must clear() first, else doubleclick will get double infos
                     $(htmlInfoBox).append(nodeInfos[0]);
                 });
-        }
+            }
         );
 
         this.on(FrameEventName.GRAPH_CONNECTED, (args: EVENT_ARGS_FRAME) => {
@@ -524,8 +524,12 @@ export abstract class MainFrame {
 
             browser.clickFlag = setTimeout(function() {
                 // click 事件的处理
-                browser.fire(FrameEventName.NETWORK_CLICK,
-                    args instanceof CanvasRenderingContext2D ? { context2d: args } : args);
+                if (cntrlIsPressed) {
+                    browser.fire(FrameEventName.NETWORK_CTRLCLICK, args instanceof CanvasRenderingContext2D ? { context2d: args } : args);
+                } else {
+                    browser.fire(FrameEventName.NETWORK_CLICK, args instanceof CanvasRenderingContext2D ? { context2d: args } : args);
+                }
+
             }, 300);//延时300毫秒执行
         });
 

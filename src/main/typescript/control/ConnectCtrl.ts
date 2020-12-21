@@ -75,7 +75,7 @@ export class ConnectCtrl extends UIControl {
             buttons: {
                 "load": function () {
                     var dlg = $(this);
-                    frame.connectService(LocalGraph.fromGsonString("" + $("textarea", this).val()), () => {
+                    frame.connectService(LocalGraph.fromGsonString("" + $("textarea", this).val(), {}), () => {
                         dlg.dialog("close");
                     });
                 }

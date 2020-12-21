@@ -192,9 +192,10 @@ export class LocalGraph implements GraphService {
         });
     }
 
-    public static fromGson(gson: GSON) {
+    public static fromGson(gson: GSON, eventHandlers: object) {
         var graph = new LocalGraph();
         graph._performLoadData = (callback: () => void) => {
+            graph._eventHandlers = eventHandlers || {};
             graph._processGson(gson);
             callback();
         };
@@ -211,9 +212,10 @@ export class LocalGraph implements GraphService {
        return JSON.parse(gsonString);
     }
 
-    public static fromGsonString(gsonString: string) {
+    public static fromGsonString(gsonString: string, eventHandlers: object) {
         var graph = new LocalGraph();
         graph._performLoadData = (callback: () => void) => {
+            graph._eventHandlers = eventHandlers || {};
             graph._processGson(LocalGraph._string2GSON(gsonString));
             callback();
         };

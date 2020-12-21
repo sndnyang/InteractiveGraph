@@ -10,9 +10,11 @@ import {SearchBoxCtrl} from "../control/SearchBoxCtrl";
 import {ToolbarCtrl} from "../control/ToolbarCtrl";
 import {StatusBarCtrl} from "../control/StatusBarCtrl";
 import {InfoBoxCtrl} from "../control/InfoBoxCtrl";
+import {CmpBoxCtrl} from "../control/CmpBoxCtrl";
 import {RelListCtrl} from "../control/RelListCtrl";
 import {ImageUploadCtrl} from "../control/ImageUploadCtrl";
 import {ResultListCtrl} from "../control/ResultListCtrl";
+import {GSON} from "../types"
 
 export abstract class BaseApp extends MainFrame {
     protected _toggleEdgeLabelHandlers;
@@ -36,6 +38,7 @@ export abstract class BaseApp extends MainFrame {
         super.addControl(new ToolbarCtrl());
         super.addControl(new StatusBarCtrl());
         super.addControl(new InfoBoxCtrl());
+        super.addControl(new CmpBoxCtrl());
         super.addControl(new ResultListCtrl());
         super.addControl(new ImageUploadCtrl());
 
@@ -57,6 +60,14 @@ export abstract class BaseApp extends MainFrame {
 
     public loadGson(url: string, eventHandlers: object, callback) {
         super.connectService(LocalGraph.fromGsonFile(url, eventHandlers), callback);
+    }
+
+    public loadGsonObj(content: GSON, eventHandlers: object, callback) {
+        super.connectService(LocalGraph.fromGson(content, eventHandlers), callback);
+    }
+
+    public loadGsonString(content: string, eventHandlers: object, callback) {
+        super.connectService(LocalGraph.fromGsonString(content, eventHandlers), callback);
     }
 
     public connect(url: string, callback) {
