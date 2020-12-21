@@ -46,6 +46,9 @@ export class InfoBoxCtrl extends UIControl {
                             htmlInfoBox: htmlInfoBox
                         });
                         $(htmlContainer).show();
+                        setTimeout(function () {
+							MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+						}, 1000)
                     }
                 }
             });
