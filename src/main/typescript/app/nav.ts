@@ -2,6 +2,7 @@ import { CommunityCtrl } from '../control/CommunityCtrl';
 import { ConnectCtrl } from '../control/ConnectCtrl';
 import { HighlightCtrl } from '../control/HighlightCtrl';
 import { InfoBoxCtrl } from '../control/InfoBoxCtrl';
+import { CmpBoxCtrl } from '../control/CmpBoxCtrl';
 import { SearchBoxCtrl } from '../control/SearchBoxCtrl';
 import { ToolbarCtrl } from '../control/ToolbarCtrl';
 import { MainFrame } from '../mainframe';
@@ -24,6 +25,7 @@ import {ImageUploadCtrl} from "../control/ImageUploadCtrl";
 export class GraphNavigator extends BaseApp {
     private _searchBar: SearchBoxCtrl;
     private _infoBox: InfoBoxCtrl;
+    private _cmpBox: CmpBoxCtrl;
     private _statusBar: StatusBarCtrl;
     private _resultListCtrl: ResultListCtrl;
     private _imageBox: ImageUploadCtrl;
@@ -43,6 +45,7 @@ export class GraphNavigator extends BaseApp {
         var frame = args.mainFrame;
         this._searchBar = frame.getRequiredControlLike(new SearchBoxCtrl());
         this._infoBox = frame.getRequiredControlLike(new InfoBoxCtrl());
+        this._cmpBox = frame.getRequiredControlLike(new CmpBoxCtrl());
         this._statusBar = frame.getRequiredControlLike(new StatusBarCtrl());
         this._resultListCtrl = frame.getRequiredControlLike(new ResultListCtrl());
         this._imageBox = frame.getRequiredControlLike(new ImageUploadCtrl());
