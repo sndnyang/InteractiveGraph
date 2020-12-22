@@ -524,12 +524,7 @@ export abstract class MainFrame {
 
             browser.clickFlag = setTimeout(function() {
                 // click 事件的处理
-                if (cntrlIsPressed) {
-                    browser.fire(FrameEventName.NETWORK_CTRLCLICK, args instanceof CanvasRenderingContext2D ? { context2d: args } : args);
-                } else {
-                    browser.fire(FrameEventName.NETWORK_CLICK, args instanceof CanvasRenderingContext2D ? { context2d: args } : args);
-                }
-
+                browser.fire(FrameEventName.NETWORK_CLICK, args instanceof CanvasRenderingContext2D ? { context2d: args } : args);
             }, 300);//延时300毫秒执行
         });
 
@@ -537,8 +532,9 @@ export abstract class MainFrame {
             if(browser.clickFlag) {//取消上次延时未执行的方法
                 browser.clickFlag = clearTimeout(browser.clickFlag);
             }
-            browser.fire(FrameEventName.NETWORK_DBLCLICK,
-                args instanceof CanvasRenderingContext2D ? { context2d: args } : args);
+            // original double click show in searchbox -> show info in CmpBox
+            // browser.fire(FrameEventName.NETWORK_DBLCLICK, args instanceof CanvasRenderingContext2D ? { context2d: args } : args);
+            browser.fire(FrameEventName.NETWORK_CTRLCLICK, args instanceof CanvasRenderingContext2D ? { context2d: args } : args);
         });
     }
 
