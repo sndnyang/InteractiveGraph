@@ -7,7 +7,7 @@
 # EnhancedInteractiveGraph
 
 
-[Demo](http://blog.zhimind.com/kg.html)
+[在线示例Demo](http://blog.zhimind.com/kg.html)
 1. 读取 json 文件(见 kg.json) 或 csv文件（用@ 分隔， 见 kg.csv)
 2. 关键词(keywords)属性查找过滤
 3. 点击节点显示信息框（和原版一致），  改进点， 长按 ctrl 再点击节点， 会显示另一个信息框
