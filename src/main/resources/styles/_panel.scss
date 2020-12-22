@@ -20,10 +20,10 @@ div.infoPanel {
   @extend .pannel;
   display: none;
   padding: 5px;
-  width: 258px;
+  width: 45%;
   background: rgba(230, 217, 202, 0.8);
   .infoPanel1 {
-    width: 230px;
+    width: 80%;
     float: left;
   }
   .infoPanel2 {
@@ -38,7 +38,7 @@ div.infoPanel {
   }
 }
 div.infoBox {
-  font-size: 9px;
+  font-size: 12px;
   border: 1px;
 }
 /*
