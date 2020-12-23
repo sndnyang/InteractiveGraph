@@ -4492,7 +4492,7 @@ function init() {
           }, "text");
 
       } else if (t === 'bib') {
-          $.get("ml.bib", { t: new Date().getTime() }, function (data) {
+          $.get("ml.bib?t=" + Math.random(), { t: new Date().getTime() }, function (data) {
             var text = bib_2_json(data);
 
             $("#grade").val(text);
@@ -4530,6 +4530,9 @@ function init() {
           node.link = entry.link;
           node.video_link = entry.link;
           node.links = split_comma_field(entry.links);
+          if ('group' in entry) {
+            node.group = entry.group;
+          }
           nodes.push(node);
           for (var j in node.cite) {
               edges.push({"from": parseInt(i) + 1, "to": node.cite[j]})
