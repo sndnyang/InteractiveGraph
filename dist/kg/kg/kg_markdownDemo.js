@@ -4535,7 +4535,7 @@ function init() {
           }
           nodes.push(node);
           for (var j in node.cite) {
-              edges.push({"from": parseInt(i) + 1, "to": node.cite[j]})
+              edges.push({"from": entry_d.citationKey, "to": node.cite[j]})
           }
       }
       var json = {'data': {'nodes': nodes, 'edges': edges}};
