@@ -15294,7 +15294,7 @@ var MainFrame = function () {
                 this._theme = theme_1.Themes[theme]();
             } else {
                 // this._theme = theme || Themes.DEFAULT();
-                this._theme = theme_1.Themes.DEFAULT();
+                this._theme = theme_1.Themes.LIGHT();
                 this._theme = utils_1.Utils.deepExtend(this._theme, theme);
                 console.log(this._theme);
             }
